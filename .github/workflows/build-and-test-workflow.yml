@@ -10,7 +10,7 @@ on:
       - synchronize
       - reopened
     branches:
-      - main
+      - master
 
 jobs:
   # PREPARE

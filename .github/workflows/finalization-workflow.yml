@@ -6,7 +6,7 @@ name: Finalization
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   release:
@@ -57,7 +57,7 @@ jobs:
           git push --set-upstream origin "$BRANCH_NAME" --force
           git push --tags
           # delete branches
-          git checkout main
+          git checkout master
           git push -d origin "$BRANCH_NAME"
           git branch -D "$BRANCH_NAME"
 
