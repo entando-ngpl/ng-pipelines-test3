@@ -55,27 +55,11 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: lcorsettientando/ng-pipelines-test-3:0.0.0
-          # tags: ${{ steps.set-docker-image-tag.DOCKER_IMAGE }}
+          # tags: lcorsettientando/ng-pipelines-test-3:0.0.0
+          tags: ${{ steps.set-docker-image-tag.DOCKER_IMAGE }}
           build-args: |
             arg1=value1
             arg2=value2
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-#      - name: "Dockerization"
-#        env:
-#          DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
-#          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-#          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-#          IMAGE_NAME: ng-pipelines-test-3
-#          IMAGE_VERSION: 0.0.1
-#        run: |
-#          docker login -u "$DOCKER_USERNAME" -p "DOCKER_PASSWORD" "$DOCKER_HOST"
 #
-#          # eap
-#          imageTag="$DOCKER_USERNAME/$IMAGE_NAME-eap:$IMAGE_VERSION"
-#          mvn clean package && docker build . --no-cache -t "$imageTag" -f Dockerfile.eap && docker push "$imageTag"
-#
-#          # widlfly
-#          imageTag="$DOCKER_USERNAME/$IMAGE_NAME-wildfly:$IMAGE_VERSION"
-#          mvn clean package && docker build . --no-cache -t "$imageTag" -f Dockerfile.wildfly && docker push "$imageTag"
