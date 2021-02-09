@@ -37,6 +37,7 @@ jobs:
       - name: "test"
         run: |
           ls -l
+          mvn package
           cd target
           echo "##############################"
           ls -l
